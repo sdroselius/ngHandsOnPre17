@@ -1,6 +1,8 @@
+import { PokemonService } from './services/pokemon.service';
 import { ProductService } from './services/product.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +12,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HrComponent } from './components/hr/hr.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PokeListComponent } from './components/poke-list/poke-list.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +20,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HelloWorldComponent,
     ProductListComponent,
     HrComponent,
-    AccordionComponent
+    AccordionComponent,
+    PokeListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
-    ProductService
+    ProductService,
+    PokemonService
   ],
   bootstrap: [AppComponent]
 })

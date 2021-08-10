@@ -1,0 +1,18 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>name</td>
+      <td>image</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poke of pokemons">
+      <td>{{poke.pokeId}}</td>
+      <td>{{poke.name}}</td>
+      <td>
+        <img [src]="poke.img"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
