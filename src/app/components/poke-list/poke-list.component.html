@@ -29,6 +29,7 @@
   <p>No. {{ selected.pokeId }}</p>
   <hr />
   <p>{{ selected.description }}</p>
+  <button (click)="setEditPokemon(selected)">Update Pokemon</button>
   <button (click)="selected = null">Back to Pokemon List</button>
 </div>
 
@@ -62,4 +63,57 @@
       <div *ngIf="pokeName.errors && pokeName.errors.minlength">Name must be at least 2 characters long.</div>
     </div>
   </div>
+</div>
+
+
+<div id="updatePokemon" *ngIf="editPokemon">
+  <form name="editPokemonForm">
+    <input
+      type="number"
+      name="pokeId"
+      placeholder="Pokemon #"
+      required
+      min="1"
+      [(ngModel)]="editPokemon.pokeId"
+    />
+    <input
+      type="text"
+      name="name"
+      placeholder="Name"
+      required
+      minlength="2"
+      [(ngModel)]="editPokemon.name"
+    />
+    <input
+      type="number"
+      step="0.1"
+      name="height"
+      placeholder="Height"
+      min=".1"
+      [(ngModel)]="editPokemon.height"
+    />
+    <input
+      type="number"
+      step="0.1"
+      name="weight"
+      placeholder="Weight"
+      min=".1"
+      required
+      [(ngModel)]="editPokemon.weight"
+    />
+    <input
+      type="text"
+      name="img"
+      placeholder="Image URL"
+      [(ngModel)]="editPokemon.img"
+    />
+    <input
+      type="text"
+      name="description"
+      placeholder="Description"
+      [(ngModel)]="editPokemon.description"
+    />
+    <button (click)="updatePokemon(editPokemon)">Update Pokemon</button>
+    <button (click)="editPokemon = null">Cancel</button>
+  </form>
 </div>

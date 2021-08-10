@@ -41,4 +41,24 @@ export class PokemonService {
     );
   }
 
+  update(pokemon: Pokemon): Observable<Pokemon> {
+    // THIS FAILS WITH 500 INTERNAL SERVER ERROR
+    console.log('PokemonService.update()');
+    console.log(pokemon);
+    const httpOptions = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+    return this.http
+      .put<Pokemon>(`${this.url}/${pokemon.pokeId}`, pokemon, httpOptions)
+      .pipe(
+        catchError((err: any) => {
+          console.error(err);
+          return throwError(
+            'PokemonService.update(): Error updating pokemon: ' + err
+          );
+        })
+      );
+  }
 }

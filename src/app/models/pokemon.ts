@@ -1,5 +1,5 @@
 export class Pokemon {
-  pokeId: number;
+  pokeId: number | null | undefined;
   name: string;
   height: number;
   weight: number;

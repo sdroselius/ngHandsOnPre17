@@ -12,6 +12,8 @@ export class PokeListComponent implements OnInit {
 
   pokemons: Pokemon[] = [];
   selected: Pokemon | null = null;
+  editPokemon: Pokemon | null = null;
+
 
   constructor(
     private pokeService: PokemonService
@@ -51,6 +53,26 @@ export class PokeListComponent implements OnInit {
         console.error('PokeListComponent.addPokemon(): Error adding pokemon');
         console.error(pokemon);
         console.error(err);
+      }
+    );
+  }
+
+  setEditPokemon(pokemon: Pokemon) {
+    this.editPokemon = Object.assign({}, pokemon);
+  }
+
+  updatePokemon(pokemon: Pokemon) {
+    console.log('Updating pokemon:');
+    console.log(pokemon);
+    this.pokeService.update(pokemon).subscribe(
+      good => {
+        const poke: Pokemon = good;
+        this.selected = poke;
+        this.editPokemon = null;
+      },
+      bad => {
+        console.error('PokeListComponent.updatePokemon(): Error updating pokemon');
+        console.error(bad);
       }
     );
   }
