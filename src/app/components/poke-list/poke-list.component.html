@@ -29,6 +29,8 @@
   <p>No. {{ selected.pokeId }}</p>
   <hr />
   <p>{{ selected.description }}</p>
+  <button *ngIf="selected.pokeId < 1 || selected.pokeId > 151"
+  (click)="deletePokemon(selected.pokeId)">Delete</button>
   <button (click)="setEditPokemon(selected)">Update Pokemon</button>
   <button (click)="selected = null">Back to Pokemon List</button>
 </div>

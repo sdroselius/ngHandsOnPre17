@@ -61,4 +61,14 @@ export class PokemonService {
         })
       );
   }
+
+  destroy(id: number) {
+    return this.http.delete<Pokemon>(`${this.url}/${id}`)
+    .pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('PokemonService.create(): Error deleting pokemon: ' + err);
+      })
+    );
+  }
 }

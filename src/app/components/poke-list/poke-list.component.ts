@@ -77,4 +77,19 @@ export class PokeListComponent implements OnInit {
     );
   }
 
+  deletePokemon(id: number) {
+    this.pokeService.destroy(id).subscribe(
+      good => {
+        console.log('Pokemon deleted: ' + id);
+        this.loadPokemon();
+        this.selected = null;
+      },
+      bad => {
+        console.error('PokeListComponent.destroy(): Error deleting pokemon ID ' + id);
+        console.error(bad);
+      }
+    );
+  }
+
+
 }
