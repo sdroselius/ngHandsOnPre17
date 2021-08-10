@@ -17,7 +17,26 @@ export class PokemonService {
     return this.http.get<Pokemon[]>(this.url + '?sorted=true').pipe(
       catchError((err: any) => {
         console.log(err);
-        return throwError('PokemonService.index(): error retrieving pokemon: ' + err);
+        return throwError(
+          'PokemonService.index(): error retrieving pokemon: ' + err
+        );
+      })
+    );
+  }
+
+  create(pokemon: Pokemon): Observable<Pokemon> {
+    pokemon.types = null;
+    const httpOptions = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+    return this.http.post<Pokemon>(this.url, pokemon, httpOptions).pipe(
+      catchError((err: any) => {
+        console.error(err);
+        return throwError(
+          'PokemonService.create(): Error creating pokemon: ' + err
+        );
       })
     );
   }

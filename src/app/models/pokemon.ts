@@ -6,7 +6,7 @@ export class Pokemon {
   exp: number;
   img: string;
   description: string;
-  types: any[];
+  types: any[] | null;
 
   constructor(
     pokeId: number = 0,

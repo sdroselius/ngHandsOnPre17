@@ -1,6 +1,7 @@
 import { Pokemon } from './../../models/pokemon';
 import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-poke-list',
@@ -28,6 +29,28 @@ export class PokeListComponent implements OnInit {
       fail => {
         console.error('PokeListComponent.loadPokemon(): Error loading pokemon list');
         console.error(fail);
+      }
+    );
+  }
+
+  addPokemon(form: NgForm) {
+    const pokemon: Pokemon = form.value;
+    console.log('PokeListComponent.addPokemon():');
+    console.log(pokemon);
+    if (!form.valid) {
+      console.error('PokeListComponent.addPokemon(): invalid form');
+      console.error(form);
+      return;
+    }
+    this.pokeService.create(pokemon).subscribe(
+      data => {
+        this.loadPokemon();
+        this.selected = null;
+      },
+      err => {
+        console.error('PokeListComponent.addPokemon(): Error adding pokemon');
+        console.error(pokemon);
+        console.error(err);
       }
     );
   }
