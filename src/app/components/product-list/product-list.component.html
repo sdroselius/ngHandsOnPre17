@@ -8,11 +8,15 @@
 </div>
 
 <form *ngIf="newProduct">
-  <input type="text" name="name" placeholder="Name" [(ngModel)]="newProduct.name"/><br />
-  <input type="text" name="price" placeholder="Price" [(ngModel)]="newProduct.price" /><br />
-  <input type="text" name="imageUrl" placeholder="Image URL" [(ngModel)]="newProduct.imgUrl"/><br />
-  <input type="number" name="rating" placeholder="rating" [(ngModel)]="newProduct.rating" /><br />
-  <input type="submit" value="Add Item" (click)="onSubmit(newProduct)"/>
+  <label for="name" class="form-label">Name</label>
+  <input type="text" name="name" placeholder="Name" [(ngModel)]="newProduct.name" class="form-control"/><br />
+  <label for="price" class="form-label">Price</label>
+  <input type="text" name="price" placeholder="Price" [(ngModel)]="newProduct.price"  class="form-control"/><br />
+  <label for="imageUrl" class="form-label">Image URL</label>
+  <input type="text" name="imageUrl" placeholder="Image URL" [(ngModel)]="newProduct.imgUrl" class="form-control"/><br />
+  <label for="rating" class="form-label">Rating</label>
+  <input type="number" name="rating" placeholder="rating" [(ngModel)]="newProduct.rating"  class="form-control"/><br />
+  <input type="submit" value="Add Item" (click)="onSubmit(newProduct)" class="btn btn-primary"/>
 </form>
 
 <h3>Number of Products : {{getNumberOfProducts()}}</h3>

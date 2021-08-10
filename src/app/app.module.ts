@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HrComponent } from './components/hr/hr.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloWorldComponent,
     ProductListComponent,
-    HrComponent
+    HrComponent,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
