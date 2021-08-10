@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
@@ -9,40 +10,19 @@ import { Product } from 'src/app/models/product';
 export class ProductListComponent implements OnInit {
   display: boolean = false;
 
-  products: Product[] = [
-    new Product(
-      "Oh, The Places You'll Go!",
-      11.39,
-      'https://images-na.ssl-images-amazon.com/images/I/518eq5NjZkL._SY160_.jpg',
-      5
-    ),
-    new Product(
-      'The Giving Tree',
-      8.31,
-      'https://images-na.ssl-images-amazon.com/images/I/51XKHozHPEL._SY160_.jpg',
-      4
-    ),
-    new Product(
-      'Pete the Cat: Big Easter Adventure',
-      7.29,
-      'https://images-na.ssl-images-amazon.com/images/I/61VqwEXgCdL._AC_US218_.jpg',
-      4
-    ),
-    new Product(
-      'Harry Potter and the Chamber of Secrets',
-      8.99,
-      'https://images-na.ssl-images-amazon.com/images/I/51PFoq3WlaL._AC_US218_.jpg',
-      5
-    ),
-  ];
+  products: Product[] = [];
 
   title = '';
 
   newProduct: Product | null = new Product();
 
-  constructor() {}
+  constructor(
+    private productService: ProductService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.products = this.productService.index();
+  }
 
   getNumberOfProducts(): number {
     return this.products.length;
@@ -53,7 +33,9 @@ export class ProductListComponent implements OnInit {
   }
 
   onSubmit(prod: Product): void {
-    this.products.push(prod);
+    // this.products.push(prod);
+    this.productService.create(prod);
+    this.products = this.productService.index();
     this.newProduct = new Product();
   }
 
