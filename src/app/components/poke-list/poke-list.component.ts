@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PokeListComponent implements OnInit {
 
   pokemons: Pokemon[] = [];
+  selected: Pokemon | null = null;
 
   constructor(
     private pokeService: PokemonService
