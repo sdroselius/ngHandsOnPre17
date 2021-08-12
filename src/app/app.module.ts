@@ -13,6 +13,8 @@ import { HrComponent } from './components/hr/hr.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
+import { PokeTypePipe } from './pipes/poke-type.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PokeListComponent } from './components/poke-list/poke-list.component';
     ProductListComponent,
     HrComponent,
     AccordionComponent,
-    PokeListComponent
+    PokeListComponent,
+    PokeTypePipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { PokeListComponent } from './components/poke-list/poke-list.component';
   ],
   providers: [
     ProductService,
-    PokemonService
+    PokemonService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

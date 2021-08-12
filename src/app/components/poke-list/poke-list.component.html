@@ -1,3 +1,5 @@
+<span *ngFor="let type of types" (click)="selectedType = type">{{type}} | </span>
+
 <table class="table table-striped table-hover" *ngIf="!selected">
   <thead>
     <tr>
@@ -7,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let poke of pokemons" (click)="selected = poke">
+    <tr *ngFor="let poke of pokemons | pokeType:selectedType" (click)="selected = poke">
       <td>{{ poke.pokeId }}</td>
       <td>{{ poke.name }}</td>
       <td>

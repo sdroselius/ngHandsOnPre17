@@ -13,7 +13,23 @@ export class PokeListComponent implements OnInit {
   pokemons: Pokemon[] = [];
   selected: Pokemon | null = null;
   editPokemon: Pokemon | null = null;
-
+  types = [
+    'all',
+    'normal',
+    'poison',
+    'water',
+    'fighting',
+    'fire',
+    'bug',
+    'flying',
+    'electric',
+    'ground',
+    'rock',
+    'psychic',
+    'ghost',
+    'dragon'
+  ];
+  selectedType: string = 'all';
 
   constructor(
     private pokeService: PokemonService

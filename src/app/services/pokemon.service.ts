@@ -25,7 +25,7 @@ export class PokemonService {
   }
 
   create(pokemon: Pokemon): Observable<Pokemon> {
-    pokemon.types = null;
+    // pokemon.types = null;
     const httpOptions = {
       headers: {
         'Content-type': 'application/json',
