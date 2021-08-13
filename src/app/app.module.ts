@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { PokeTypePipe } from './pipes/poke-type.pipe';
 import { DatePipe } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { DatePipe } from '@angular/common';
     HrComponent,
     AccordionComponent,
     PokeListComponent,
-    PokeTypePipe
+    PokeTypePipe,
+    HomeComponent,
+    AboutComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
